@@ -1,3 +1,11 @@
 <resources>
 	<string name="app_name">Mini U-Campus</string>
+
+	<string name="login">로그인</string>
+	<string name="course">강의 목록</string>
+
+	<string name="plan_student">강의계획서 조회</string>
+	<string name="plan_professor">강의계획서 입력</string>
+
+	<string name="students">학생 정보 조회</string>
 </resources>

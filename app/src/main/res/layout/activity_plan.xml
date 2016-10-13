@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/activity_plan"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="com.dbapp.miniu_campus.StudentsActivity">
+
+	<TableLayout
+		android:id="@+id/table_plan"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:stretchColumns="*">
+
+		<!-- 첫번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="강의번호"/>
+
+			<TextView
+				android:id="@+id/plan_text_course_id"
+				android:text=""/>
+		</TableRow>
+
+		<!-- 두번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="강의명"/>
+
+			<TextView
+				android:id="@+id/plan_text_course_name"
+				android:text=""/>
+		</TableRow>
+
+		<!-- 세번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="강의시간"/>
+
+			<TextView
+				android:id="@+id/plan_text_time"
+				android:text=""/>
+		</TableRow>
+
+		<!-- 네번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="담당교수"/>
+
+			<TextView
+				android:id="@+id/plan_text_prof"
+				android:text=""/>
+		</TableRow>
+
+		<!-- 디섯번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="수강인원"/>
+
+			<TextView
+				android:id="@+id/plan_text_seats"
+				android:text=""/>
+		</TableRow>
+
+		<!-- 여섯번째 줄 -->
+		<TableRow>
+
+			<TextView
+				android:background="@color/tableRowDark"
+				android:text="강의내용"/>
+		</TableRow>
+
+		<!-- 일곱번째 줄 -->
+		<EditText
+			android:id="@+id/plan_text_detail"
+			android:hint="강의내용을 입력하세요."
+			android:inputType="text"
+			android:textSize="16sp"/>
+	</TableLayout>
+
+	<Button
+		android:id="@+id/plan_button_save"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:onClick="onClickSave"
+		android:text="확인"/>
+</RelativeLayout>

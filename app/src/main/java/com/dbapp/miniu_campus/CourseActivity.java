@@ -18,6 +18,7 @@ public class CourseActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_course);
+		setTitle(R.string.course);
 
 		Intent intent = getIntent();
 		MemberInfo memberInfo = (MemberInfo) intent.getSerializableExtra("MEMBER_INFO");
@@ -29,8 +30,8 @@ public class CourseActivity extends AppCompatActivity {
 
 	/* 뷰 등록 함수 */
 	private void myFindView() {
-		tableLayout_entire = (TableLayout) findViewById(R.id.table_entire);
-		tableLayout_take = (TableLayout) findViewById(R.id.table_take);
+		tableLayout_entire = (TableLayout) findViewById(R.id.course_table_entire);
+		tableLayout_take = (TableLayout) findViewById(R.id.course_table_take);
 	}
 
 	/* 테이블 레이아웃 동적 생성 함수 */
@@ -39,9 +40,9 @@ public class CourseActivity extends AppCompatActivity {
 		String grade = params[1];
 
 		if (grade.toUpperCase().equals("STUDENT")) {
-			((TextView) findViewById(R.id.text_take)).setText("수강 강의");
+			((TextView) findViewById(R.id.course_text_take)).setText("수강 강의");
 		} else if (grade.toUpperCase().equals("PROFESSOR")) {
-			((TextView) findViewById(R.id.text_take)).setText("수업 강의");
+			((TextView) findViewById(R.id.course_text_take)).setText("수업 강의");
 		}
 
 		// 전체 강의 테이블

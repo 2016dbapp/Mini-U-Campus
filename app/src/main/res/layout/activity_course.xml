@@ -13,7 +13,7 @@
 
 
 	<TextView
-		android:id="@+id/text_entire"
+		android:id="@+id/course_text_entire"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentStart="true"
@@ -22,11 +22,11 @@
 		android:textSize="32sp"/>
 
 	<TableLayout
-		android:id="@+id/table_entire"
+		android:id="@+id/course_table_entire"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentStart="true"
-		android:layout_below="@+id/text_entire"
+		android:layout_below="@+id/course_text_entire"
 		android:stretchColumns="*">
 
 		<TableRow
@@ -41,21 +41,21 @@
 	</TableLayout>
 
 	<TextView
-		android:id="@+id/text_take"
+		android:id="@+id/course_text_take"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentStart="true"
-		android:layout_below="@+id/table_entire"
+		android:layout_below="@+id/course_table_entire"
 		android:layout_marginTop="16dp"
 		android:text="수강 강의"
 		android:textSize="32sp"/>
 
 	<TableLayout
-		android:id="@+id/table_take"
+		android:id="@+id/course_table_take"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentStart="true"
-		android:layout_below="@+id/text_take"
+		android:layout_below="@+id/course_text_take"
 		android:stretchColumns="*">
 
 		<TableRow

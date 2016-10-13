@@ -20,7 +20,7 @@
 
 		<!-- 첫번째 줄 -->
 		<RadioButton
-			android:id="@+id/radio_student"
+			android:id="@+id/login_radio_student"
 			android:layout_column="0"
 			android:layout_columnSpan="2"
 			android:layout_columnWeight="1"
@@ -31,7 +31,7 @@
 			android:text="강의등록관리"/>
 
 		<RadioButton
-			android:id="@+id/radio_professor"
+			android:id="@+id/login_radio_professor"
 			android:layout_column="2"
 			android:layout_columnSpan="2"
 			android:layout_columnWeight="1"
@@ -49,7 +49,7 @@
 			android:text="학번 : "/>
 
 		<EditText
-			android:id="@+id/text_member_id"
+			android:id="@+id/login_text_member_id"
 			android:layout_column="1"
 			android:layout_columnSpan="3"
 			android:layout_gravity="left|fill_horizontal"
@@ -65,7 +65,7 @@
 			android:text="비밀번호 : "/>
 
 		<EditText
-			android:id="@+id/text_password"
+			android:id="@+id/login_text_password"
 			android:layout_column="1"
 			android:layout_columnSpan="3"
 			android:layout_gravity="left|fill_horizontal"
@@ -74,7 +74,7 @@
 			android:inputType="textPassword"/>
 
 		<Button
-			android:id="@+id/button_login"
+			android:id="@+id/login_button_login"
 			android:layout_column="0"
 			android:layout_columnSpan="2"
 			android:layout_columnWeight="1"
@@ -84,7 +84,7 @@
 			android:text="로그인"/>
 
 		<Button
-			android:id="@+id/button_exit"
+			android:id="@+id/login_button_exit"
 			android:layout_column="2"
 			android:layout_columnSpan="2"
 			android:layout_columnWeight="1"
