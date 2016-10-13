@@ -1,5 +1,7 @@
 package com.dbapp.miniu_campus;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,18 +23,6 @@ public class LoginActivity extends AppCompatActivity {
 	private Button button_login;                    // 로그인
 	private Button button_exit;                     // 종료
 
-	/* 뷰 등록 함수 */
-	private void myFindView() {
-		radioButton_student = (RadioButton) findViewById(R.id.student);
-		radioButton_professor = (RadioButton) findViewById(R.id.professor);
-
-		editText_member_id = (EditText) findViewById(R.id.member_id);
-		editText_password = (EditText) findViewById(R.id.password);
-
-		button_login = (Button) findViewById(R.id.login);
-		button_exit = (Button) findViewById(R.id.exit);
-	}
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,18 +30,30 @@ public class LoginActivity extends AppCompatActivity {
 
 		myFindView();
 
-		mode = Mode.Student;
+		mode = Mode.STUDENT;
+	}
+
+	/* 뷰 등록 함수 */
+	private void myFindView() {
+		radioButton_student = (RadioButton) findViewById(R.id.radio_student);
+		radioButton_professor = (RadioButton) findViewById(R.id.radio_professor);
+
+		editText_member_id = (EditText) findViewById(R.id.text_member_id);
+		editText_password = (EditText) findViewById(R.id.text_password);
+
+		button_login = (Button) findViewById(R.id.button_login);
+		button_exit = (Button) findViewById(R.id.button_exit);
 	}
 
 	/* 버튼 클릭 함수 */
 	public void onClick(View view) throws ExecutionException, InterruptedException {
 		switch (view.getId()) {
-			case R.id.student:
-			case R.id.professor:        // 라디오 버튼을 누른 경우
+			case R.id.radio_student:
+			case R.id.radio_professor:        // 라디오 버튼을 누른 경우
 				changeMode(view.getId());
 				break;
 
-			case R.id.login:            // 로그인 버튼을 누른 경우
+			case R.id.button_login:            // 로그인 버튼을 누른 경우
 				String member_id = editText_member_id.getText().toString();
 				String password = editText_password.getText().toString();
 				String grade = mode.toString();
@@ -61,7 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 				Boolean result = loginAsyncTask.execute(member_id, password, grade).get();
 
 				if (result == true) {
-					// 다음 화면 추가
+					startCourseActivity();
+					finish();
 				} else {
 					Toast.makeText(this.getApplicationContext(),
 							"로그인에 실패했습니다.",
@@ -69,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 				}
 				break;
 
-			case R.id.exit:             // 종료 버튼을 누른 경우
+			case R.id.button_exit:             // 종료 버튼을 누른 경우
 				finish();
 		}
 	}
@@ -77,21 +80,37 @@ public class LoginActivity extends AppCompatActivity {
 	/* 로그인 모드 변경 함수 */
 	private void changeMode(int id) {
 		switch (id) {
-			case R.id.student:
-				mode = Mode.Student;
+			case R.id.radio_student:
+				mode = Mode.STUDENT;
 				radioButton_student.setChecked(true);
 				radioButton_professor.setChecked(false);
 				break;
 
-			case R.id.professor:
-				mode = Mode.Professor;
+			case R.id.radio_professor:
+				mode = Mode.PROFESSOR;
 				radioButton_professor.setChecked(true);
 				radioButton_student.setChecked(false);
 				break;
 		}
 	}
 
+	/* CourseActivity 실행 함수 */
+	private void startCourseActivity() {
+		MemberInfo memberInfo = new MemberInfo();
+		memberInfo.setMember_id(editText_member_id.getText().toString());
+		memberInfo.setGrade(mode.toString());
+
+		ComponentName componentName = new ComponentName(
+				"com.dbapp.miniu_campus",
+				"com.dbapp.miniu_campus.CourseActivity");
+
+		Intent intent = new Intent();
+		intent.setComponent(componentName);
+		intent.putExtra("MEMBER_INFO", memberInfo);
+		startActivity(intent);
+	}
+
 	private enum Mode {
-		Student, Professor
+		STUDENT, PROFESSOR
 	}
 }
