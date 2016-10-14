@@ -22,7 +22,6 @@ public class CourseAsyncTask extends AsyncTask<String, Void, ArrayList<String[]>
 		String member_id = params[1];       // 첫번째 인자 : member_id
 
 		String page = "http://hwyncho.dlinkddns.com:8080/course.jsp";       // 강의정보 JSP 페이지
-
 		String url = page + "?member_id=" + member_id;
 
 		try {

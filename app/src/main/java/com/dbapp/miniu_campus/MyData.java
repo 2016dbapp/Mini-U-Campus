@@ -2,15 +2,17 @@ package com.dbapp.miniu_campus;
 
 import java.io.Serializable;
 
-public class MemberInfo implements Serializable {
+public class MyData implements Serializable {
 	private static final long serialVersionUID = 1000000L;
 
 	private String member_id;
 	private String grade;
+	private String course_id;
 
-	public MemberInfo() {
-		member_id = "";
-		grade = "";
+	public MyData() {
+		this.member_id = "";
+		this.grade = "";
+		this.course_id = "";
 	}
 
 	public String getMember_id() {
@@ -27,5 +29,13 @@ public class MemberInfo implements Serializable {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+
+	public String getCourse_id() {
+		return this.course_id;
+	}
+
+	public void setCourse_id(String course_id) {
+		this.course_id = course_id;
 	}
 }

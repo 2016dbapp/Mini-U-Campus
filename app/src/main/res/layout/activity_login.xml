@@ -27,7 +27,7 @@
 			android:layout_gravity="center"
 			android:layout_row="0"
 			android:checked="true"
-			android:onClick="onClick"
+			android:onClick="myOnClick_Login"
 			android:text="강의등록관리"/>
 
 		<RadioButton
@@ -38,7 +38,7 @@
 			android:layout_gravity="center"
 			android:layout_row="0"
 			android:checked="false"
-			android:onClick="onClick"
+			android:onClick="myOnClick_Login"
 			android:text="강의계획서관리"/>
 
 		<!-- 두번째 줄 -->
@@ -80,7 +80,7 @@
 			android:layout_columnWeight="1"
 			android:layout_gravity="center|fill_horizontal"
 			android:layout_row="3"
-			android:onClick="onClick"
+			android:onClick="myOnClick_Login"
 			android:text="로그인"/>
 
 		<Button
@@ -90,7 +90,7 @@
 			android:layout_columnWeight="1"
 			android:layout_gravity="center|fill_horizontal"
 			android:layout_row="3"
-			android:onClick="onClick"
+			android:onClick="myOnClick_Login"
 			android:text="종료"/>
 	</GridLayout>
 </LinearLayout>
