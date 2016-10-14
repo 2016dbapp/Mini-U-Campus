@@ -41,5 +41,6 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
+		android:onClick="myOnClick_Students"
 		android:text="확인"/>
 </RelativeLayout>

@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +24,30 @@ public class StudentsAsyncTask extends AsyncTask<String, Void, ArrayList<String[
 		String url = page + "?course_id=" + course_id;
 
 		try {
-			Document document = Jsoup.connect(url).get();
+			Document document = Jsoup.connect(url).get();                   // 페이지 html 가져오기
+
+			String[] member_id = null;
+			String[] department = null;
+			String[] grade = null;
+			String[] member_name = null;
+
+			ArrayList<String[]> memberList = new ArrayList<String[]>();
+
+			Elements elements = document.select("table#students tbody");
+
+			for (Element e : elements) {
+				member_id = e.select("tr td#member_id").text().split(" ");
+				department = e.select("tr td#department").text().split(" ");
+				grade = e.select("tr td#grade").text().split(" ");
+				member_name = e.select("tr td#member_name").text().split(" ");
+			}
+
+			memberList.add(member_id);
+			memberList.add(department);
+			memberList.add(grade);
+			memberList.add(member_name);
+
+			return memberList;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
