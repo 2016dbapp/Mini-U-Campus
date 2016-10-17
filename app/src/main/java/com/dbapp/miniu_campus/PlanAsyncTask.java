@@ -34,7 +34,7 @@ public class PlanAsyncTask extends AsyncTask<String, Void, ArrayList<String>> {
 
 			ArrayList<String> planList = new ArrayList<String>();
 
-			Elements elements = document.select("table#entire tbody");
+			Elements elements = document.select("table#plan tbody");
 
 			for (Element e : elements) {
 				course_name = e.select("tr td#course_name").text();

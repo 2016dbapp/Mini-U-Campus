@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 
-public class PlanWriteAyncTask extends AsyncTask<String, Void, Boolean> {
+public class PlanWriteAsyncTask extends AsyncTask<String, Void, Boolean> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
@@ -20,8 +20,8 @@ public class PlanWriteAyncTask extends AsyncTask<String, Void, Boolean> {
 		String detail = params[1];          // 두번째 인자 : detail
 
 		String page = "http://hwyncho.dlinkddns.com:8080/plan_write.jsp";        // 강의계획서 입력 JSP 페이지
-		String url = page + "?course=" + course_id
-				+ "&detail=" + detail.replaceAll(" ", "%20");
+		String url = page + "?course_id=" + course_id
+				+ "&detail=" + detail;
 
 		try {
 			Document document = Jsoup.connect(url).get();                   // 페이지 html 소스 가져오기

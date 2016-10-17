@@ -94,8 +94,8 @@ public class PlanActivity extends AppCompatActivity {
 				} else if (this.grade.toUpperCase().equals("PROFESSOR")) {
 					String detail = ((EditText) findViewById(R.id.plan_text_detail)).getText().toString();
 
-					PlanWriteAyncTask planWriteAyncTask = new PlanWriteAyncTask();
-					Boolean result = planWriteAyncTask.execute(this.course_id, detail).get();
+					PlanWriteAsyncTask planWriteAsyncTask = new PlanWriteAsyncTask();
+					Boolean result = planWriteAsyncTask.execute(this.course_id, detail).get();
 
 					if (result == true) {
 						Toast.makeText(this, "성공적으로 입력됐습니다.", Toast.LENGTH_SHORT).show();
