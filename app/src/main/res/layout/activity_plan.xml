@@ -20,7 +20,8 @@
 		android:stretchColumns="*">
 
 		<!-- 첫번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_1">
 
 			<TextView
 				android:background="@color/tableRowDark"
@@ -32,7 +33,8 @@
 		</TableRow>
 
 		<!-- 두번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_2">
 
 			<TextView
 				android:background="@color/tableRowDark"
@@ -44,7 +46,8 @@
 		</TableRow>
 
 		<!-- 세번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_3">
 
 			<TextView
 				android:background="@color/tableRowDark"
@@ -56,7 +59,8 @@
 		</TableRow>
 
 		<!-- 네번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_4">
 
 			<TextView
 				android:background="@color/tableRowDark"
@@ -68,7 +72,8 @@
 		</TableRow>
 
 		<!-- 디섯번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_5">
 
 			<TextView
 				android:background="@color/tableRowDark"
@@ -80,7 +85,8 @@
 		</TableRow>
 
 		<!-- 여섯번째 줄 -->
-		<TableRow>
+		<TableRow
+			android:id="@+id/activity_plan_6">
 
 			<TextView
 				android:background="@color/tableRowDark"

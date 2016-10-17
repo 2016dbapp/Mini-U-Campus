@@ -21,7 +21,7 @@ public class PlanWriteAyncTask extends AsyncTask<String, Void, Boolean> {
 
 		String page = "http://hwyncho.dlinkddns.com:8080/plan_write.jsp";        // 강의계획서 입력 JSP 페이지
 		String url = page + "?course=" + course_id
-				+ "&detail=" + detail;
+				+ "&detail=" + detail.replaceAll(" ", "%20");
 
 		try {
 			Document document = Jsoup.connect(url).get();                   // 페이지 html 소스 가져오기
