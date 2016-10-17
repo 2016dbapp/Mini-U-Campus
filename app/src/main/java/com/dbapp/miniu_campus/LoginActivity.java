@@ -13,15 +13,15 @@ import android.widget.Toast;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
-	Mode mode;                                      // 로그인 모드
+	Mode mode;                                        // 로그인 모드
 	private RadioButton radioButton_student;        // 강의등록관리
-	private RadioButton radioButton_professor;      // 강의계획서관리
+	private RadioButton radioButton_professor;        // 강의계획서관리
 
 	private EditText editText_member_id;            // 학번
-	private EditText editText_password;             // 비밀번호
+	private EditText editText_password;                // 비밀번호
 
 	private Button button_login;                    // 로그인
-	private Button button_exit;                     // 종료
+	private Button button_exit;                        // 종료
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 				}
 				break;
 
-			case R.id.login_button_exit:             // 종료 버튼을 누른 경우
+			case R.id.login_button_exit:        // 종료 버튼을 누른 경우
 				finish();
 				break;
 		}

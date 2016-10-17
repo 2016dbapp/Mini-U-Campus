@@ -18,9 +18,9 @@ public class PlanAsyncTask extends AsyncTask<String, Void, ArrayList<String>> {
 
 	@Override
 	protected ArrayList<String> doInBackground(String... params) {
-		String course_id = params[0];       // 첫번째 인자 : course_id
+		String course_id = params[0];        // 첫번째 인자 : course_id
 
-		String page = "http://hwyncho.dlinkddns.com:8080/plan.jsp";     // 강의계획서 JSP 페이지
+		String page = "http://hwyncho.dlinkddns.com:8080/plan.jsp";        // 강의계획서 JSP 페이지
 		String url = page + "?course_id=" + course_id;
 
 		try {

@@ -16,9 +16,9 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Boolean> {
 
 	@Override
 	protected Boolean doInBackground(String... params) {
-		String member_id = params[0];       // 첫번째 인자 : member_id
+		String member_id = params[0];        // 첫번째 인자 : member_id
 		String password = params[1];        // 두번째 인자 : password
-		String grade = params[2];           // 세번째 인자 : grade(Student 또는 Professor)
+		String grade = params[2];            // 세번째 인자 : grade(Student 또는 Professor)
 
 		String page = "http://hwyncho.dlinkddns.com:8080/login.jsp";        // 로그인 JSP 페이지
 		String url = page + "?member_id=" + member_id
@@ -26,12 +26,12 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Boolean> {
 				+ "&grade=" + grade;
 
 		try {
-			Document document = Jsoup.connect(url).get();                   // 페이지 html 소스 가져오기
-			Element element = document.select("label#result").first();      // 페이지에서 id가 result인 label 값 가져오기
+			Document document = Jsoup.connect(url).get();                    // 페이지 html 소스 가져오기
+			Element element = document.select("label#result").first();        // 페이지에서 id가 result인 label 값 가져오기
 
-			if (element.text().toUpperCase().equals("SUCCESS")) {           // Success인 경우
+			if (element.text().toUpperCase().equals("SUCCESS")) {            // Success인 경우
 				return true;
-			} else if (element.text().toUpperCase().equals("FAIL")) {       // Fail인 경우
+			} else if (element.text().toUpperCase().equals("FAIL")) {        // Fail인 경우
 				return false;
 			}
 		} catch (IOException e) {

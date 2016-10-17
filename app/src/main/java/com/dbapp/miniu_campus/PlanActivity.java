@@ -39,10 +39,12 @@ public class PlanActivity extends AppCompatActivity {
 		mySetTableLayout(this.course_id);
 	}
 
+	/* 뷰 등록 함수 */
 	public void myFindView() {
 		this.tableLayout = (TableLayout) findViewById(R.id.table_plan);
 	}
 
+	/* 테이블 레이아웃 동적 생성 함수 */
 	public void mySetTableLayout(String... params) {
 		try {
 			// JSP 접속 후, 강의계획서 가져오기
@@ -55,7 +57,7 @@ public class PlanActivity extends AppCompatActivity {
 			String seats = planList.get(3);
 			String detail = planList.get(4);
 
-			if (course_name.toString().equals(""))         // 비어있을 경우 예외 발생
+			if (course_name.toString().equals(""))        // 비어있을 경우 예외 발생
 				throw new Exception();
 
 			TextView textVIew_course_id = (TextView) findViewById(R.id.plan_text_course_id);
@@ -86,7 +88,8 @@ public class PlanActivity extends AppCompatActivity {
 		}
 	}
 
-	public void onClickSave(View view) throws ExecutionException, InterruptedException {
+	/* 버튼 클릭 함수 */
+	public void myOnClick_Plan(View view) throws ExecutionException, InterruptedException {
 		switch (view.getId()) {
 			case R.id.plan_button_save:
 				if (this.grade.toUpperCase().equals("STUDENT")) {

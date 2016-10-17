@@ -18,13 +18,13 @@ public class StudentsAsyncTask extends AsyncTask<String, Void, ArrayList<String[
 
 	@Override
 	protected ArrayList<String[]> doInBackground(String... params) {
-		String course_id = params[0];       // 첫번째 인자
+		String course_id = params[0];        // 첫번째 인자
 
-		String page = "http://hwyncho.dlinkddns.com:8080/students.jsp";     // 학생 조회 JSP 페이지
+		String page = "http://hwyncho.dlinkddns.com:8080/students.jsp";        // 학생 조회 JSP 페이지
 		String url = page + "?course_id=" + course_id;
 
 		try {
-			Document document = Jsoup.connect(url).get();                   // 페이지 html 가져오기
+			Document document = Jsoup.connect(url).get();        // 페이지 html 가져오기
 
 			String[] member_id = null;
 			String[] department = null;

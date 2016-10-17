@@ -30,6 +30,7 @@ public class StudentsActivity extends AppCompatActivity {
 		this.mySetTableLayout();
 	}
 
+	/* 뷰 등록 함수 */
 	public void myFindView() {
 		this.tableLayout = (TableLayout) findViewById(R.id.students_table);
 	}
@@ -64,12 +65,12 @@ public class StudentsActivity extends AppCompatActivity {
 			StudentsAsyncTask studentsAsyncTask = new StudentsAsyncTask();
 			ArrayList<String[]> memberList = studentsAsyncTask.execute(this.course_id).get();
 
-			String[] member_id = memberList.get(0);         // 학번 목록
+			String[] member_id = memberList.get(0);            // 학번 목록
 			String[] department = memberList.get(1);        // 학과 목록
-			String[] grade = memberList.get(2);             // 학년 목록
-			String[] member_name = memberList.get(3);       // 이름 목록
+			String[] grade = memberList.get(2);                // 학년 목록
+			String[] member_name = memberList.get(3);        // 이름 목록
 
-			if (member_id[0].toString().equals(""))         // 비어있을 경우 예외 발생
+			if (member_id[0].toString().equals(""))            // 비어있을 경우 예외 발생
 				throw new Exception();
 
 			// TableRow 생성
@@ -97,6 +98,7 @@ public class StudentsActivity extends AppCompatActivity {
 		}
 	}
 
+	/* 버튼 클릭 함수 */
 	public void myOnClick_Students(View view) {
 		switch (view.getId()) {
 			case R.id.students_button_ok:

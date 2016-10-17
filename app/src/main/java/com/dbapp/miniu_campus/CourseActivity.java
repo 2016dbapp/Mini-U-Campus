@@ -74,9 +74,9 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
 		int myId = 0;
 
-		// 전체 강의 테이블
+		// 전체 강의 목록
 		try {
-			this.tableLayout_entire.removeAllViews();        // 전체 강의 테이블 내용 삭제
+			this.tableLayout_entire.removeAllViews();        // 전체 강의 목록 삭제
 
 			// 테이블 row 설정 및 추가
 			TextView textView_head_course_id = new TextView(this);
@@ -96,10 +96,10 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 			CourseAsyncTask courseAsyncTask = new CourseAsyncTask();
 			ArrayList<String[]> courseList = courseAsyncTask.execute("ENTIRE", "").get();
 
-			String[] course_id = courseList.get(0);         // 강의번호 목록
-			String[] course_name = courseList.get(1);       // 강의명 목록
+			String[] course_id = courseList.get(0);            // 강의번호 목록
+			String[] course_name = courseList.get(1);        // 강의명 목록
 
-			if (course_id[0].toString().equals(""))         // 비어있을 경우 예외 발생
+			if (course_id[0].toString().equals(""))            // 비어있을 경우 예외 발생
 				throw new Exception();
 
 			// TableRow 생성
@@ -142,9 +142,9 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 			e.printStackTrace();
 		}
 
-		// 수강 or 담당 강의 테이블
+		// 수강 or 담당 강의 목록
 		try {
-			this.tableLayout_take.removeAllViews();        // 전체 강의 테이블 내용 삭제
+			this.tableLayout_take.removeAllViews();        // 수강 or 담당 강의 목록 삭제
 
 			// 테이블 row 설정 및 추가
 			TextView textView_head_course_id = new TextView(this);
@@ -160,14 +160,14 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
 			this.tableLayout_take.addView(tableRow_head);
 
-			// JSP 접속 후, 수강 or 수업 강의 목록 가져오기
+			// JSP 접속 후, 수강 or 담당 강의 목록 가져오기
 			CourseAsyncTask courseAsyncTask = new CourseAsyncTask();
 			ArrayList<String[]> courseList = courseAsyncTask.execute("TAKE", member_id).get();
 
-			String[] course_id = courseList.get(0);         // 강의번호 목록
-			String[] course_name = courseList.get(1);       // 강의명 목록
+			String[] course_id = courseList.get(0);            // 강의번호 목록
+			String[] course_name = courseList.get(1);        // 강의명 목록
 
-			if (course_id[0].toString().equals(""))         // 비어 있을 경우 예외 발생
+			if (course_id[0].toString().equals(""))            // 비어 있을 경우 예외 발생
 				throw new Exception();
 
 			//  TableRow 생성
@@ -211,6 +211,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 		}
 	}
 
+	/* 수강 등록 함수 */
 	public void myCourseAdd(int id) {
 		String course_id = ((TextView) findViewById(id - 3)).getText().toString();
 
@@ -231,6 +232,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 		}
 	}
 
+	/* 수강 삭제 함수 */
 	public void myCourseDelete(int id) {
 		String course_id = ((TextView) findViewById(id - 3)).getText().toString();
 
@@ -251,6 +253,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 		}
 	}
 
+	/* PlanActivity 실행 함수 */
 	public void myPlanRead(int id) {
 		String course_id = ((TextView) findViewById(id - 2)).getText().toString();
 
@@ -268,6 +271,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 		startActivity(intent);
 	}
 
+	/* PlanActivity 실행 함수 */
 	public void myPlanWrite(int id) {
 		String course_id = ((TextView) findViewById(id - 3)).getText().toString();
 
@@ -285,6 +289,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 		startActivity(intent);
 	}
 
+	/* StudentsActivity 실행 함수 */
 	public void myStudents(int id) {
 		String course_id = ((TextView) findViewById(id - 2)).getText().toString();
 
