@@ -98,6 +98,10 @@
 			android:id="@+id/plan_text_detail"
 			android:hint="강의내용을 입력하세요."
 			android:inputType="text"
+			android:lines="7"
+			android:maxLines="8"
+			android:minLines="2"
+			android:scrollbars="vertical"
 			android:textSize="16sp"/>
 	</TableLayout>
 

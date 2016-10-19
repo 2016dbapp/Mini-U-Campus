@@ -3,6 +3,7 @@ package com.dbapp.miniu_campus;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,9 @@ import java.util.concurrent.ExecutionException;
 public class CourseActivity extends AppCompatActivity implements View.OnClickListener {
 	String member_id;
 	String grade;
-
 	TableLayout tableLayout_entire;
 	TableLayout tableLayout_take;
+	private long exitTime = 0L;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,16 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 			this.myCourseDelete(view.getId());
 		} else if ((((Button) findViewById(view.getId())).getText().toString().equals("입력"))) {
 			this.myPlanWrite(view.getId());
+		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		if ((this.exitTime != 00) && (SystemClock.uptimeMillis() - exitTime) < 3000) {
+			finish();
+		} else {
+			Toast.makeText(this, "뒤로 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+			exitTime = SystemClock.uptimeMillis();
 		}
 	}
 
